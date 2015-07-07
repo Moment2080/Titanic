@@ -3,6 +3,7 @@ import java.util.Scanner;
 /**
  * Created by Thomas Hodges on 7/6/15.
  * CMIS 141 - Final Project
+ * Menu.java
  * This class functions as the menu to display
  * in the command line. It calls methods from the
  * Titanic class in order to modify the titanic.txt
@@ -54,7 +55,8 @@ public class Menu extends Titanic {
             choice = input.next().toLowerCase();
             // Runs methods from Titanic class based on user input
             switch (choice) {
-                case "q" : runState = false;
+                case "q" : quitProgram();
+                    runState = false;
                     break;
                 case "1" : totalPassengers();
                     break;
@@ -79,8 +81,9 @@ public class Menu extends Titanic {
                     break;
             }
 
-            // When runState turns fasle, this method ends
+            // When runState turns false, this method ends
         } while (runState);
+
     }
 
 }

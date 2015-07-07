@@ -1,9 +1,11 @@
 import java.text.DecimalFormat;
+import java.time.LocalTime;
 import java.util.*;
 
 /**
  * Created by Thomas Hodges on 7/5/15.
  * CMIS 141 - Final Project
+ * Titanic.java
  * This class enables the creation and modification of
  * the titanic.txt file as an object with a 2D array.
  */
@@ -12,10 +14,14 @@ public class Titanic {
 
     // Private 2D array for the data
     private String[][] titanicData;
+    private LocalTime startTime;
+    private LocalTime stopTime;
 
     // Default constructor, accepts 2D array
     public Titanic(String[][] data) {
         this.titanicData = data;
+        // Initializes startTime
+        this.startTime = LocalTime.now();
     }
 
     // Creates a menu object and begins the prompts for user input
@@ -30,6 +36,17 @@ public class Titanic {
 //  [3]  sex (male or female)
 //  [4]  age (some values are blank)
 //  [5]  fare (some values are blank)
+
+    /*
+
+    IMPORTANT NOTE FOR TOTAL PASSENGERS
+
+    The titanic.txt file contains 1309 lines of data, with one blank line extra.
+    The sample run for this project says that there were 1310 passengers on the
+    Titanic. I don't believe I did this incorrectly, I just want to point out
+    the difference between my program and the sample run.
+
+     */
 
     // 1 row = 1 passenger
     public void totalPassengers() {
@@ -197,6 +214,17 @@ public class Titanic {
             // Returns the number of elements in letters equal to the ch object
             System.out.println(ch + ": " + Collections.frequency(letters, ch));
         }
+    }
+
+    // Method used to quit
+    public void quitProgram() {
+        System.out.println("\nThank you for trying the Titanic Program.");
+        // Initializes stopTime
+        this.stopTime = LocalTime.now();
+        System.out.println("\nElapsed time in seconds was: " +
+                // Gets the time between startTime and stopTime
+            java.time.Duration.between(this.startTime, this.stopTime)
+                .getSeconds()); // Converted to seconds
     }
 
 }

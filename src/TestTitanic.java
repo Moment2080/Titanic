@@ -5,6 +5,7 @@ import java.util.Scanner;
 /**
  * Created by Thomas Hodges on 7/5/15.
  * CMIS 141 - Final Project
+ * TestTitanic.java
  * This program takes the titanic.txt file from the command
  * line and creates a 2D array.
  */
