@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 /**
  * Created by Thomas Hodges on 7/5/15.
+ * CMIS 141 - Final Project
+ * This program takes the titanic.txt file from the command
+ * line and creates a 2D array.
  */
 
 public class TestTitanic {
 
+    // Method that builds a 2D array from the txt file
     public void filler(String[] args) {
 
         // Try-catch is needed for passing args to method
@@ -26,8 +30,9 @@ public class TestTitanic {
             }
 
             // Creates a new Titanic object
-            Titanic bigList = new Titanic(titanic);
-            bigList.passToMenu();
+            Titanic titanicObject = new Titanic(titanic);
+            // Calls the passToMenu method from Titanic class
+            titanicObject.passToMenu();
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");

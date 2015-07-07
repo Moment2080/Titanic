@@ -2,18 +2,26 @@ import java.util.Scanner;
 
 /**
  * Created by Thomas Hodges on 7/6/15.
+ * CMIS 141 - Final Project
+ * This class functions as the menu to display
+ * in the command line. It calls methods from the
+ * Titanic class in order to modify the titanic.txt
+ * file.
  */
 
 public class Menu extends Titanic {
 
+    // Private data fields specific to Menu
     private static Boolean runState = true;
-    public Scanner input = new Scanner(System.in);
-    public String choice;
+    private Scanner input = new Scanner(System.in);
+    private String choice;
 
+    // Default constructor
     public Menu(String[][] data) {
         super(data);
     }
 
+    // Method that displays the menu in the command-line
     public void showMenu() {
         System.out.println("\n*********Welcome to the Titanic Statistical Application" +
                 "**************************\n");
@@ -39,10 +47,12 @@ public class Menu extends Titanic {
         System.out.print("\nEnter your selection: ");
     }
 
+    // Method that places the menu in a do/while loop
     public void input() {
         do {
             showMenu();
             choice = input.next().toLowerCase();
+            // Runs methods from Titanic class based on user input
             switch (choice) {
                 case "q" : runState = false;
                     break;
@@ -64,9 +74,12 @@ public class Menu extends Titanic {
                     break;
                 case "9" : totalByLetter();
                     break;
-                default: break;
+                default:
+                    System.out.println("\nPlease enter a valid choice.");
+                    break;
             }
 
+            // When runState turns fasle, this method ends
         } while (runState);
     }
 
